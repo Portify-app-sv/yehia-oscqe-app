@@ -1,0 +1,29 @@
+name: Portify
+options:
+  bundleIdPrefix: app.portify
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+
+targets:
+  Portify:
+    type: application
+    platform: iOS
+    sources:
+      - path: .
+        excludes:
+          - "README.md"
+          - "project.yml"
+          - "*.xcodeproj"
+    settings:
+      base:
+        # Generation pipeline substitutes these per client (mirrors the Android
+        # APP_ID / APP_NAME placeholders in app/build.gradle.kts).
+        PRODUCT_BUNDLE_IDENTIFIER: app.portify.generated
+        INFOPLIST_KEY_CFBundleDisplayName: Portify
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES

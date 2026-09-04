@@ -1,0 +1,43 @@
+name: Build portfolio app (APK + AAB)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject app id / name from portify-build.json
+        run: |
+          APP_ID=$(jq -r '.application_id' portify-build.json)
+          APP_NAME=$(jq -r '.app_name' portify-build.json)
+          sed -i "s|{{APP_ID}}|${APP_ID}|g; s|{{APP_NAME}}|${APP_NAME}|g" app/build.gradle.kts
+          echo "Building ${APP_NAME} (${APP_ID})"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build APK + AAB
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :app:assembleRelease :app:bundleRelease --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-apk
+          path: app/build/outputs/apk/release/*.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-aab
+          path: app/build/outputs/bundle/release/*.aab

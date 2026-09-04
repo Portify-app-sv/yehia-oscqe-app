@@ -1,0 +1,34 @@
+{
+  "name": "Yehia Reda",
+  "username": "yehia-reda",
+  "headline": "Senior Android Engineer",
+  "bio": "I build Kotlin Multiplatform apps and developer tools.",
+  "location": "Cairo, Egypt",
+  "email": "yehia@example.com",
+  "social_links": [
+    { "platform": "github", "url": "https://github.com/yehia" },
+    { "platform": "linkedin", "url": "https://linkedin.com/in/yehia" }
+  ],
+  "skills": [
+    { "name": "Kotlin", "category": "Languages", "level": "expert" },
+    { "name": "Jetpack Compose", "category": "UI", "level": "advanced" }
+  ],
+  "experiences": [
+    {
+      "role": "Senior Android Engineer",
+      "company": "Acme",
+      "location": "Remote",
+      "start_date": "2022-01",
+      "end_date": null,
+      "current": true,
+      "description": "Lead the KMP migration.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    { "institution": "Cairo University", "degree": "BSc Computer Science", "field_of_study": null, "start_date": "2015", "end_date": "2019" }
+  ],
+  "projects": [
+    { "title": "Portify", "description": "Portfolio generator.", "live_url": "https://portify.app", "source_url": null, "logo_url": null, "images": [], "tags": ["KMP", "Compose"] }
+  ]
+}
