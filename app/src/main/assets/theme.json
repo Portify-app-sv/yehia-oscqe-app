@@ -1,10 +1,11 @@
 {
-  "accent": "#2563eb",
-  "page": "#e8edf6",
-  "screen": "#ffffff",
-  "ink": "#0f172a",
-  "muted": "#64748b",
-  "surface": "#f1f5f9",
-  "on_accent": "#ffffff",
-  "dark": false
+    "accent": "#2563eb",
+    "page": "#eef2f8",
+    "screen": "#ffffff",
+    "ink": "#0f172a",
+    "muted": "#64748b",
+    "surface": "#f1f5f9",
+    "on_accent": "#ffffff",
+    "accent2": "#7c3aed",
+    "dark": false
 }
